@@ -63,4 +63,7 @@ export class RegistrationPage {
       this.passwordAlert(err);
     })
   }
+  navToLogin(){
+    this.navCtrl.navigateForward("login");
+  }
 }
