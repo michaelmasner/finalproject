@@ -27,17 +27,16 @@ export class RegistrationPage {
   ) {
     this.user = userService.user;
   }
-
-  async passwordAlert(err) {
+  async credentialsAlert(err) {
     const alert = await this.alertCtrl.create({
-      header: "Your password and confirmation do not match",
+      header: "Please fill in credentials.",
       buttons: ["OK"]
     });
     await alert.present();
   }
   async emailAlert(err) {
     const alert = await this.alertCtrl.create({
-      header: "Email is taken",
+      header: "Email taken.",
       buttons: ["OK"]
     });
     await alert.present();
@@ -60,7 +59,12 @@ export class RegistrationPage {
         }
       });
     }).catch(err => {
-      this.passwordAlert(err);
+      if(this.email || this.surname || this.cellphone || this.name || this.password == null){
+        this.credentialsAlert(err);
+      }
+      else{
+        this.emailAlert(err);
+      }
     })
   }
   navToLogin(){
