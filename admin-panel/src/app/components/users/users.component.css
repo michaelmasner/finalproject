@@ -1,0 +1,14 @@
+.table-row{
+    cursor: pointer;
+}
+
+.table-row:hover{
+    background-color: rgba(0, 123, 255, 0.5);
+
+}
+.chart{
+    text-align: center;
+    width: 60vw;
+    display: block;
+    margin: 0 auto;
+}

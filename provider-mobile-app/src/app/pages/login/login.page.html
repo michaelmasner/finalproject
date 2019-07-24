@@ -1,0 +1,27 @@
+<ion-header text-center>
+  <ion-toolbar>
+    <ion-title>Login Page</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header text-center>
+      <ion-card-title>Sign In</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-input type="text" placeholder="Email" [(ngModel)]="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Password" type="password" [(ngModel)]="password"></ion-input>
+      </ion-item>
+      <div>
+        <ion-button size="medium" expand="block" (click)="login()">Login</ion-button>
+        <ion-button size="medium" expand="block" (click)="navToRegistration()">Register</ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,36 @@
+<ion-header text-center>
+  <ion-toolbar>
+    <ion-title>Registration</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header text-center>
+      <ion-card-title>Sign Up</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-input type="text" placeholder="First Name" [(ngModel)]="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Surname" [(ngModel)]="surname"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Cellphone" [(ngModel)]="cellphone"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Email" [(ngModel)]="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Password" type="password" [(ngModel)]="password"></ion-input>
+      </ion-item>
+      <!-- <ion-item>
+          <ion-input type="text" placeholder="Confirm Password" type="password" [(ngModel)]="confirmpassword"></ion-input>
+        </ion-item> -->
+      <div>
+        <ion-button size="medium" expand="block" (click)="register()">Register</ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
