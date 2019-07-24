@@ -25,7 +25,7 @@ export class LoginPage {
   }
   async presentAlert(err) {
     const alert = await this.alertCtrl.create({
-      header: "Incorrect login credentials",
+      header: err,
       buttons: ["OK"]
     });
     await alert.present();
@@ -48,7 +48,7 @@ export class LoginPage {
         });
       })
       .catch(err => {
-        this.presentAlert(err);
+        this.presentAlert(err.error.text);
       });
   }
   navToRegistration() {

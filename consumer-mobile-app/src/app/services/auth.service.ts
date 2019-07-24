@@ -35,7 +35,7 @@ export class AuthService {
       .subscribe(
         (response: any) => {
           console.log(response.id);
-          localStorage.setItem("userid", response.id);
+          localStorage.setItem("userId", response.id);
           resolve(response);
         },
         err => {

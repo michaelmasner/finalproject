@@ -29,19 +29,19 @@ export class RegistrationPage {
   }
   async credentialsAlert(err) {
     const alert = await this.alertCtrl.create({
-      header: "Please fill in credentials.",
+      header: "Please complete credentials",
       buttons: ["OK"]
     });
     await alert.present();
   }
   async emailAlert(err) {
     const alert = await this.alertCtrl.create({
-      header: "Email taken.",
+      header: err,
       buttons: ["OK"]
     });
     await alert.present();
   }
-  register(){
+  register() {
     const authUser = {
       firstName: this.name,
       lastName: this.surname,
@@ -50,24 +50,33 @@ export class RegistrationPage {
       password: this.password,
       role: this.role
     };
-    this.authService.register(authUser).then(res =>{
-      const testId = localStorage.getItem("userId");
-      console.log(testId);
-      this.navCtrl.navigateForward("profile",{
-        queryParams:{
-          user: res
+    this.authService
+      .register(authUser)
+      .then(res => {
+        const testId = localStorage.getItem("userId");
+        console.log(testId);
+        this.navCtrl.navigateForward("profile", {
+          queryParams: {
+            user: res
+          }
+        });
+      })
+      .catch(err => {
+        //console.log(err.error.text);
+        if (
+          (this.email ||
+            this.surname ||
+            this.cellphone ||
+            this.name ||
+            this.password) == null
+        ) {
+          this.credentialsAlert(err);
+        } else {
+          this.emailAlert(err.error.text);
         }
       });
-    }).catch(err => {
-      if(this.email || this.surname || this.cellphone || this.name || this.password == null){
-        this.credentialsAlert(err);
-      }
-      else{
-        this.emailAlert(err);
-      }
-    })
   }
-  navToLogin(){
+  navToLogin() {
     this.navCtrl.navigateForward("login");
   }
 }

@@ -24,10 +24,10 @@ module.exports = class ProviderAuthService {
             if (dbProvider[0].password == authProvider.password) {
               resolve(dbProvider);
             } else {
-              reject("incorrect password");
+              reject("Incorrect password.");
             }
           } else {
-            reject("user not found");
+            reject("Email not found.");
           }
         })
         .catch(err => {
