@@ -2,10 +2,10 @@ const express = require("express");
 
 const router = express.Router();
 
-const Property = require('../models/property-model');
+const Booking = require('../models/booking-model');
 
 router.get("/", (req, res) => {
-    Property.prototype
+    Booking.prototype
         .getAll()
         .then(users => {
             res.send(users);
@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/create", (req, res) => {
-    Property.prototype
+    Booking.prototype
         .create(req.body)
         .then(users => {
             res.send(users);
@@ -27,7 +27,7 @@ router.post("/create", (req, res) => {
 });
 
 router.patch("/update/:id", (req, res) => {
-    Property.prototype
+    Booking.prototype
         .updateByID(req.params.id, req.body)
         .then(users => {
             res.send(users);
@@ -38,7 +38,7 @@ router.patch("/update/:id", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-    Property.prototype
+    Booking.prototype
         .getById(req.params.id)
         .then(users => {
             res.send(users);
@@ -49,13 +49,13 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/delete/:id", (req, res) => {
-    Property.prototype
+    Booking.prototype
         .remove(req.params.id)
         .then(users => {
             res.send(users);
         })
         .catch(err => {
-            res.send(err);
+            res.status(400).send(err);
         });
 
 });

@@ -12,7 +12,7 @@ router.get("/", (req, res) => {
             res.send(users);
         })
         .catch(err => {
-            res.send(err);
+            res.status(400).send(err);
         });
 });
 
@@ -24,7 +24,7 @@ router.post("/create", (req, res) => {
             res.send(users);
         })
         .catch(err => {
-            res.send(err);
+            res.status(400).send(err);
         });
 });
 
@@ -36,7 +36,7 @@ router.post("/update/:id", (req, res) => {
             res.send(users);
         })
         .catch(err => {
-            res.send(err);
+            res.status(400).send(err);
         });
 });
 
@@ -48,7 +48,7 @@ router.get("/:id", (req, res) => {
             res.send(users);
         })
         .catch(err => {
-            res.send(err);
+            res.status(400).send(err);
         });
 });
 
@@ -60,7 +60,7 @@ router.post("/delete", (req, res) => {
             res.send(users);
         })
         .catch(err => {
-            res.send(err);
+            res.status(400).send(err);
         });
 });
 

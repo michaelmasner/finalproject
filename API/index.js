@@ -4,7 +4,6 @@ const app = express();
 const cors = require("cors");
 // Allows us to access from device
 app.use(cors());
-const usersRouter = require("./src/api/user-routes");
 
 //Body Parser Middlware:
 app.use(express.json());
@@ -13,11 +12,12 @@ app.use(express.urlencoded({ extended: false }));
 // jwt
 //app.use(jwtAuth);
 
-app.use("/api/user", usersRouter);
+app.use("/api/user", require("./src/api/user-routes"));
 app.use("/api/provider", require("./src/api/provider-routes"));
 app.use("/api/userauth", require("./src/api/user-auth-routes"));
 app.use("/api/providerauth", require("./src/api/provider-auth-routes"));
 app.use("/api/property", require("./src/api/property-routes"));
+app.use("/api/booking", require("./src/api/booking-routes"));
 
 // Custom Middleware
 app.use((req, res, next) => {

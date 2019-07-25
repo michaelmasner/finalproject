@@ -13,7 +13,7 @@ router.post("/login", (req, res) => {
       res.send(users);
     })
     .catch(err => {
-      res.send(err);
+      res.status(400).send(err);
     });
 });
 
@@ -25,7 +25,7 @@ router.post("/register", (req, res) => {
       res.send(users);
     })
     .catch(err => {
-      res.send(err);
+      res.status(400).send(err);
     });
 });
 
