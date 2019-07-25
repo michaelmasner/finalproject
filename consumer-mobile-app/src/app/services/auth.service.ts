@@ -16,12 +16,11 @@ export class AuthService {
         .post("http://localhost:2000/api/userauth/login", authUser, { headers })
         .subscribe(
           (response: any) => {
-            console.log(response.id);
-            localStorage.setItem("userId", response.id);
+            console.log(response[0].id);
+            localStorage.setItem("userId", response[0].id);
             resolve(response);
           },
           err => {
-            // console.log(err);
             reject(err);
           }
         );
@@ -35,7 +34,7 @@ export class AuthService {
       .subscribe(
         (response: any) => {
           console.log(response.id);
-          localStorage.setItem("userId", response.id);
+          localStorage.setItem("userId", response[0].id);
           resolve(response);
         },
         err => {

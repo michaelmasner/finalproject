@@ -1,9 +1,36 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>profile</ion-title>
-  </ion-toolbar>
+  <ion-avatar>
+    <img src="https://cresscap.com/wp-content/uploads/bfi_thumb/dummy-profile-pic-353fq072wibz1xp0b9j75s.png">
+  </ion-avatar>
+  <h1> Welcome back {{firstName}} {{lastName}}!</h1>
+  <p>
+    <ion-icon name="text"></ion-icon>78 Reviews
+  </p>
+  <p>
+    <ion-icon name="book"></ion-icon>1387 bookings
+  </p>
 </ion-header>
-
 <ion-content>
-
+  <p>
+    Joined in 2015
+  </p>
+  <h2>About</h2>
+  <p>
+    <ion-icon name="home"></ion-icon>Lives in Cape Town, South Africa
+  </p>
+  <p>
+    <ion-icon name="logo-facebook"></ion-icon>Facebook Connected
+  </p>
+  <div>
+  </div>
+  <h3>
+    {{firstName}} provided
+    <p>
+      <ion-icon name="checkmark-circle"></ion-icon>Email Address: {{email}}
+      <ion-icon name="checkmark-circle"></ion-icon> Phonenumber: {{cellphone}}
+    </p>
+  </h3>
+  <div>
+      <ion-button size="medium" expand="block" (click)="navController()">Login</ion-button>
+  </div>
 </ion-content>

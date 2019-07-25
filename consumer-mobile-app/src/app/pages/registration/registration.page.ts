@@ -27,9 +27,9 @@ export class RegistrationPage {
   ) {
     this.user = userService.user;
   }
-  async credentialsAlert(err) {
+  async presentAlert(err) {
     const alert = await this.alertCtrl.create({
-      header: "Please complete credentials",
+      header: err,
       buttons: ["OK"]
     });
     await alert.present();
@@ -62,18 +62,7 @@ export class RegistrationPage {
         });
       })
       .catch(err => {
-        //console.log(err.error.text);
-        if (
-          (this.email ||
-            this.surname ||
-            this.cellphone ||
-            this.name ||
-            this.password) == null
-        ) {
-          this.credentialsAlert(err);
-        } else {
-          this.emailAlert(err.error.text);
-        }
+          this.presentAlert(err.error);
       });
   }
   navToLogin() {
