@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ListingsService } from "../../services/listings.service";
 // import { Listing } from "../../models/listings.model";
+
 import {
   // NavController,
   // ToastController,
@@ -16,11 +17,11 @@ import {
 export class ListingdetailsPage implements OnInit {
   public listId: string;
   public userId: number;
-
   public listName: string;
   public listLocation: string;
   public price: string;
   public image_url: string;
+  public today = new Date();
 
   constructor(
     private listingService: ListingsService,

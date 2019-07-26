@@ -23,12 +23,14 @@
       <ion-title>Booking Information</ion-title>
     </ion-card-header>
     <ion-item>
-      <ion-input type="text" placeholder="date_from"></ion-input>
+      <ion-label>Start Date:</ion-label>
+      <ion-datetime displayFormat="DDDD MMM D, YYYY" min="2005" max="2021" value={{today}}></ion-datetime>
     </ion-item>
     <ion-item>
-      <ion-input type="text" placeholder="date_to"></ion-input>
-    </ion-item>
-        <ion-button text-align="center"shape="round" size="small">Book</ion-button>  
+        <ion-label>End Date:</ion-label>
+        <ion-datetime displayFormat="DDDD MMM D, YYYY" min="2005" max="2021" value={{today}}></ion-datetime>
+      </ion-item>
+    <ion-button text-align="center" shape="round" size="small">Book</ion-button>
   </ion-card>
 
 
