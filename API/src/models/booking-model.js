@@ -1,6 +1,11 @@
 var mysqlConn = require("../database/database");
 
 const fs = require("fs");
+const status = {
+  default: "NEW",
+  accepted: "ACCEPTED",
+  rejected: "REJECTED"
+}
 
 module.exports = class Booking {
   constructor(newDateFrom, newDateTo, newUserId) {
@@ -9,6 +14,13 @@ module.exports = class Booking {
     this.userId = newUserId;
   }
   create(booking) {
+    // let newBooking = {
+    //   dateFrom: this.dateFrom,
+    //   dateTo: this.dateTo,
+    //   userId: this.userId,
+    //   status: status.default
+    // };
+    //booking = newBooking;
     return new Promise((resolve, reject) => {
       mysqlConn.query("INSERT INTO bookings set ?", booking, (err, res) => {
         if (err) {
