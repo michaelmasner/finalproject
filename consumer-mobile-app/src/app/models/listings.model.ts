@@ -1,6 +1,6 @@
 export class Listing {
     id: number;
-    providerId: number;
+    //providerId: number;
     name: string;
     imageUrl: string;
     listingDescription: string;

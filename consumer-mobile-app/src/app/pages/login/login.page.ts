@@ -39,13 +39,9 @@ export class LoginPage {
       .login(authUser)
       .then(res => {
         const testId = localStorage.getItem("userId");
-        console.log(testId);
+        //console.log(testId);
 
-        this.navCtrl.navigateForward("listings", {
-          queryParams: {
-            user: res
-          }
-        });
+        this.navCtrl.navigateForward("listings");
       })
       .catch(err => {
         this.presentAlert(err.error.text);

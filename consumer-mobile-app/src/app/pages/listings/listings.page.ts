@@ -45,7 +45,12 @@ export class ListingsPage implements OnInit {
   navToProfile() {
     this.navCtrl.navigateForward("profile");
   }
-  navToDetails(){
-    this.navCtrl.navigateForward("listingdetails");
+  navToDetails(id){
+    this.navCtrl.navigateForward("listingdetails", {
+      queryParams:{
+        property: id
+      }
+    });
+
   }
 }

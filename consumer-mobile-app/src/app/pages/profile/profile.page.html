@@ -1,35 +1,38 @@
 <ion-header text-center>
-  <ion-title>Profile</ion-title>
+  <ion-toolbar>
+      <ion-title>Profile</ion-title>
+  </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-avatar style="float:right">
-    <img src="https://cresscap.com/wp-content/uploads/bfi_thumb/dummy-profile-pic-353fq072wibz1xp0b9j75s.png">
-  </ion-avatar>
-  <h1> Welcome back {{firstName}} {{lastName}}!</h1>
-  <p>
-    <ion-icon name="text"></ion-icon>78 Reviews
-  </p>
-  <p>
-    <ion-icon name="book"></ion-icon>1387 bookings
-  </p>
-  <p>
-    Joined in 2015
-  </p>
-  <h2>About</h2>
-  <p>
-    <ion-icon name="home"></ion-icon>Lives in Cape Town, South Africa
-  </p>
-  <p>
-    <ion-icon name="logo-facebook"></ion-icon>Facebook Connected
-  </p>
-  <div>
-  </div>
-  <h3>
-    {{firstName}} provided
+  <ion-card>
+    <ion-avatar style="float:right">
+      <img src="https://cresscap.com/wp-content/uploads/bfi_thumb/dummy-profile-pic-353fq072wibz1xp0b9j75s.png">
+    </ion-avatar>
+    <h1> Welcome back {{firstName}} {{lastName}}!</h1>
+    <p><ion-icon name="text"></ion-icon>78 Reviews</p>
     <p>
-      <ion-icon name="checkmark-circle"></ion-icon>Email Address: {{email}}
-      <ion-icon name="checkmark-circle"></ion-icon> Phonenumber: {{cellphone}}
+      <ion-icon name="book"></ion-icon>1387 bookings
     </p>
-  </h3>
-  <ion-button (click)="navController()">Explore</ion-button>
+    <p>
+      Joined in 2015
+    </p>
+    <h2>About</h2>
+    <p>
+      <ion-icon name="home"></ion-icon>Lives in Cape Town, South Africa
+    </p>
+    <p>
+      <ion-icon name="logo-facebook"></ion-icon>Facebook Connected
+    </p>
+    <div>
+    </div>
+    <h3>
+      {{firstName}} provided
+      <p>
+        <ion-icon name="checkmark-circle"></ion-icon>Email Address: {{email}}
+        <ion-icon name="checkmark-circle"></ion-icon> Phonenumber: {{cellphone}}
+      </p>
+    </h3>
+    <ion-button (click)="navController()">Explore</ion-button>
+  </ion-card>
+
 </ion-content>
