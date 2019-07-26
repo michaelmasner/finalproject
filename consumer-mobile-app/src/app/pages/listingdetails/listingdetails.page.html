@@ -1,17 +1,35 @@
 <ion-header>
   <ion-toolbar>
-      <ion-button
-      shape="round"
-      size="small"
-      onclick="history.back()"
-      color="danger"
-      >Back</ion-button>
+    <ion-button shape="round" size="small" onclick="history.back()" color="danger">Back</ion-button>
     <ion-title text-center>Details</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!-- <img src="{{list.imageUrl}}"> -->
-  {{price}}
+  <ion-card>
+    <div>
+      <img src="{{image_url}}">
+    </div>
+    <div>
+      <ion-card-title>{{listName}}</ion-card-title>
+    </div>
+    <div>
+      <ion-card-subtitle>{{listLocation}}</ion-card-subtitle>
+    </div>
+    <p style="float:right">{{price}}</p>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-title>Booking Information</ion-title>
+    </ion-card-header>
+    <ion-item>
+      <ion-input type="text" placeholder="date_from"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="date_to"></ion-input>
+    </ion-item>
+        <ion-button text-align="center"shape="round" size="small">Book</ion-button>  
+  </ion-card>
+
 
 </ion-content>
