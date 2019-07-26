@@ -11,7 +11,7 @@ module.exports = class Property {
   }
   create(property) {
     return new Promise((resolve, reject) => {
-      mysqlConn.query("INSERT INTO listings set ?", property, (err, res) => {
+      mysqlConn.query("INSERT INTO property set ?", property, (err, res) => {
         if (err) {
           reject(err);
         } else {
@@ -23,7 +23,7 @@ module.exports = class Property {
 
   getAll() {
     return new Promise((resolve, reject) => {
-      mysqlConn.query("Select * from listings", (err, res) => {
+      mysqlConn.query("Select * from property", (err, res) => {
         if (err) {
           reject(err);
         } else {
@@ -32,11 +32,11 @@ module.exports = class Property {
       });
     });
   }
-  getById(Id) {
+  getById(id) {
     return new Promise((resolve, reject) => {
       mysqlConn.query(
-        "Select * from listings where id = ? ",
-        Id,
+        "Select * from property where id = ? ",
+        id,
         (err, res) => {
           if (err) {
             reject(err);
@@ -50,7 +50,7 @@ module.exports = class Property {
   updateByID(Id, listing) {
     return new Promise((resolve, reject) => {
       mysqlConn.query(
-        "UPDATE listings SET name = ?, location = ?, imgUrl = ?, price = ? WHERE id = ?",
+        "UPDATE property SET name = ?, location = ?, imgUrl = ?, price = ? WHERE id = ?",
         [listing.name, listing.location, listing.imgUrl, listing.price, Id],
         (err, res) => {
           if (err) {
@@ -64,7 +64,7 @@ module.exports = class Property {
   }
   remove(Id) {
     return new Promise((resolve, reject) => {
-      mysqlConn.query("DELETE FROM listings WHERE id = ?", Id, (err, res) => {
+      mysqlConn.query("DELETE FROM property WHERE id = ?", Id, (err, res) => {
         if (err) {
           reject(err);
         } else {

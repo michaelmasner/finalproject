@@ -41,7 +41,7 @@ export class LoginPage {
         const testId = localStorage.getItem("userId");
         console.log(testId);
 
-        this.navCtrl.navigateForward("profile", {
+        this.navCtrl.navigateForward("listings", {
           queryParams: {
             user: res
           }

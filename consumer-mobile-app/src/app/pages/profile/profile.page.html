@@ -1,5 +1,9 @@
-<ion-header>
-  <ion-avatar>
+<ion-header text-center>
+    <ion-title>Profile</ion-title>
+</ion-header>
+<ion-content>
+  <ion-button (click)="navController()">Explore</ion-button>
+  <ion-avatar style= "float:right">
     <img src="https://cresscap.com/wp-content/uploads/bfi_thumb/dummy-profile-pic-353fq072wibz1xp0b9j75s.png">
   </ion-avatar>
   <h1> Welcome back {{firstName}} {{lastName}}!</h1>
@@ -9,8 +13,6 @@
   <p>
     <ion-icon name="book"></ion-icon>1387 bookings
   </p>
-</ion-header>
-<ion-content>
   <p>
     Joined in 2015
   </p>
@@ -30,7 +32,4 @@
       <ion-icon name="checkmark-circle"></ion-icon> Phonenumber: {{cellphone}}
     </p>
   </h3>
-  <div>
-      <ion-button size="medium" expand="block" (click)="navController()">Login</ion-button>
-  </div>
 </ion-content>

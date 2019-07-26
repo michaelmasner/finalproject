@@ -1,9 +1,15 @@
-<ion-header>
+<ion-header text-center>
   <ion-toolbar>
-    <ion-title>listings</ion-title>
+    <ion-title>Explore</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-button (click)= "signOut()">Sign out</ion-button>
+  <ion-button style= "float:right" (click)= "navToProfile()">Profile</ion-button>
+  <ion-item>
+    <ion-card *ngFor="let Listing of listings">
+    </ion-card>
+  </ion-item>
 
 </ion-content>

@@ -35,11 +35,10 @@ export class ProfilePage implements OnInit {
         this.cellphone = response[0].cellphone;
       })
       .catch(err => {
-        console.log("SUCK DICK");
         this.presentAlert(err.statusText);
       });
   }
   navController(){
-    this.navCtrl.navigateForward('login')
+    this.navCtrl.navigateForward('listings')
   }
 }

@@ -26,7 +26,7 @@ router.post("/create", (req, res) => {
         });
 });
 
-router.patch("/update/:id", (req, res) => {
+router.post("/update/:id", (req, res) => {
     Property.prototype
         .updateByID(req.params.id, req.body)
         .then(users => {
@@ -55,7 +55,7 @@ router.post("/delete/:id", (req, res) => {
             res.send(users);
         })
         .catch(err => {
-            res.send(err);
+            res.status(400).send(err);
         });
 
 });
