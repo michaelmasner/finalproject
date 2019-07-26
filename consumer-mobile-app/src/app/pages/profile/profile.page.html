@@ -1,9 +1,8 @@
 <ion-header text-center>
-    <ion-title>Profile</ion-title>
+  <ion-title>Profile</ion-title>
 </ion-header>
 <ion-content>
-  <ion-button (click)="navController()">Explore</ion-button>
-  <ion-avatar style= "float:right">
+  <ion-avatar style="float:right">
     <img src="https://cresscap.com/wp-content/uploads/bfi_thumb/dummy-profile-pic-353fq072wibz1xp0b9j75s.png">
   </ion-avatar>
   <h1> Welcome back {{firstName}} {{lastName}}!</h1>
@@ -32,4 +31,5 @@
       <ion-icon name="checkmark-circle"></ion-icon> Phonenumber: {{cellphone}}
     </p>
   </h3>
+  <ion-button (click)="navController()">Explore</ion-button>
 </ion-content>

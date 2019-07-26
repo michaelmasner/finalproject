@@ -7,9 +7,14 @@
 <ion-content>
   <ion-button (click)= "signOut()">Sign out</ion-button>
   <ion-button style= "float:right" (click)= "navToProfile()">Profile</ion-button>
-  <ion-item>
-    <ion-card *ngFor="let Listing of listings">
-    </ion-card>
-  </ion-item>
+    <ion-card *ngFor="let listing of listings" (click)="navToDetails()">
+      <div>
+          <img src= "{{listing.imageUrl}}">
+      </div>
+      <div>{{listing.name}} 
+        <p style= "float:right">{{listing.price}}</p>
+      </div> 
+      {{listing.location}}
 
+    </ion-card>
 </ion-content>

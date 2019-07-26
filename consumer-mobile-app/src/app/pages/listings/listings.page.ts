@@ -32,6 +32,7 @@ export class ListingsPage implements OnInit {
       .getAll()
       .then((response: any) => {
         this.listings = response;
+        console.log(this.listings);
       })
       .catch(err => {
         this.presentAlert(err.statusText);
@@ -43,5 +44,8 @@ export class ListingsPage implements OnInit {
 
   navToProfile() {
     this.navCtrl.navigateForward("profile");
+  }
+  navToDetails(){
+    this.navCtrl.navigateForward("listingdetails");
   }
 }
