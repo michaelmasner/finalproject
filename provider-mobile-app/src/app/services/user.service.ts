@@ -15,7 +15,7 @@ constructor(private http: HttpClient, private navCtrl: NavController){}
 
 create(user: User){
     return new Promise((resolve, reject) =>{
-        this.http.post('http://localhost:2000/api/user/create', user).subscribe(response => {
+        this.http.post('http://localhost:2000/api/provider/create', user).subscribe(response => {
             resolve(response);
         }),
         err =>{
@@ -27,7 +27,7 @@ create(user: User){
 
 getAll(){
     return new Promise((resolve, reject) =>{
-        this.http.get('http://localhost:2000/api/user/').subscribe(response => {
+        this.http.get('http://localhost:2000/api/provider/').subscribe(response => {
             resolve(response);
         }),
         err =>{
@@ -38,7 +38,7 @@ getAll(){
 }
 getById(userId){
     return new Promise((resolve, reject) => {
-        this.http.get('http://localhost:2000/api/user/' + userId).subscribe(response =>{
+        this.http.get('http://localhost:2000/api/provider/' + userId).subscribe(response =>{
             resolve(response);
         }),
         err =>{
@@ -49,7 +49,7 @@ getById(userId){
 }
 updateById(userId){
     return new Promise((resolve, reject) => {
-        this.http.post('http://localhost:2000/api/user/update' + userId, userId).subscribe(response =>{
+        this.http.post('http://localhost:2000/api/provider/update/' + userId, userId).subscribe(response =>{
             resolve(response);
         }),
         err =>{
@@ -61,7 +61,7 @@ updateById(userId){
 
 remove(userId){
     return new Promise((resolve, reject) => {
-        this.http.post('http://localhost:2000/api/user/delete', userId).subscribe(response =>{
+        this.http.post('http://localhost:2000/api/provider/delete/', userId).subscribe(response =>{
             resolve(response);
         }),
         err =>{

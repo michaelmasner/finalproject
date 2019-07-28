@@ -16,7 +16,8 @@ export class AuthService {
         .post("http://localhost:2000/api/providerauth/login", authUser, { headers })
         .subscribe(
           (response: any) => {
-            localStorage.setItem("providerId", response.id);
+            console.log(response.id);
+            localStorage.setItem("userId", response.id);
             resolve(response);
           },
           err => {
@@ -33,8 +34,8 @@ export class AuthService {
         .post("http://localhost:2000/api/providerauth/register", authUser, { headers })
         .subscribe(
           (response: any) => {
-            console.log(response[3]);
-            localStorage.setItem("providerId", response[3].id);
+            console.log(response.insertId);
+            localStorage.setItem("userId", response.insertId);
             resolve(response);
           },
           err => {

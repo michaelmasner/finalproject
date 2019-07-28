@@ -53,9 +53,9 @@ router.get("/:id", (req, res) => {
 });
 
 // Delete Property
-router.post("/delete", (req, res) => {
+router.post("/delete/:id", (req, res) => {
     Provider.prototype
-        .remove(req.body.id)
+        .remove(req.params.id)
         .then(users => {
             res.send(users);
         })

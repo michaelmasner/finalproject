@@ -48,6 +48,17 @@ router.get("/:id", (req, res) => {
         });
 });
 
+router.get("/providerId/:id", (req, res) => {
+    Property.prototype
+        .getByProviderId(req.params.id)
+        .then(users => {
+            res.send(users);
+        })
+        .catch(err => {
+            res.status(400).send(err);
+        });
+});
+
 router.post("/delete/:id", (req, res) => {
     Property.prototype
         .remove(req.params.id)

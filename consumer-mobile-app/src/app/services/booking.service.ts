@@ -45,7 +45,7 @@ getById(id){
 }
 getByPropertyId(id){
     return new Promise((resolve, reject) => {
-        this.http.get('http://localhost:2000/api/booking/getByPropertyId' + id).subscribe(response =>{
+        this.http.get('http://localhost:2000/api/booking/propertyId/' + id).subscribe(response =>{
             resolve(response);
         }),
         err =>{

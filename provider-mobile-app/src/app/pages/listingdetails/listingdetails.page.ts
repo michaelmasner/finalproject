@@ -4,7 +4,7 @@ import { ListingsService } from "../../services/listings.service";
 import { Booking } from "../../models/booking.model";
 import { BookingService } from "../../services/booking.service";
 import {
-  // NavController,
+  NavController,
   ToastController,
   AlertController
 } from "@ionic/angular";
@@ -30,7 +30,7 @@ export class ListingdetailsPage implements OnInit {
   constructor(
     private listingService: ListingsService,
     // private listing: Listing,
-    // private navCtrl: NavController,
+    private navCtrl: NavController,
     private toastCtrl: ToastController,
     private alertCtrl: AlertController,
     //private booking: Booking,
@@ -55,7 +55,7 @@ export class ListingdetailsPage implements OnInit {
      this.listId = params.get("property");
 
     this.listingService
-      .getById(this.listId)
+      .getByProviderId(this.listId)
       .then((response: any) => {
         this.listName = response[0].name;
         this.listLocation = response[0].location;
@@ -90,4 +90,7 @@ export class ListingdetailsPage implements OnInit {
       this.presentAlert(err);
     });
   }
+navToEdit(){
+  this.navCtrl.navigateForward("editproperty");
+}
 }

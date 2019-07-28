@@ -36,9 +36,9 @@ router.post("/update/:id", (req, res) => {
         });
 });
 
-router.get('/getByPropertyId', (req, res) => {
+router.get('/propertyId/:id', (req, res) => {
     Booking.prototype
-        .getByListingId(req.body.propertyId)
+        .getByListingId(req.params.id)
         .then(bookings => {
             res.send(bookings);
         })

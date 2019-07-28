@@ -48,9 +48,9 @@ router.get("/:id", (req, res) => {
         });
 });
 
-router.post("/delete", (req, res) => {
+router.post("/delete/:id", (req, res) => {
     User.prototype
-        .remove(req.body.id)
+        .remove(req.params.id)
         .then(users => {
             res.send(users);
         })

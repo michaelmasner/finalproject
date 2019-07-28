@@ -22,7 +22,7 @@ module.exports = class ProviderAuthService {
           if (dbProvider.length) {
             //const match = bcrypt.compare(dbUser[0].password, authUser.password);
             if (dbProvider[0].password == authProvider.password) {
-              resolve(dbProvider);
+              resolve(dbProvider[0]);
             } else {
               reject("Incorrect password.");
             }

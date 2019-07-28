@@ -29,7 +29,7 @@ export class ListingsPage implements OnInit {
   ngOnInit() {
     this.user.id = +localStorage.getItem("userId");
     this.listingsService
-      .getAll()
+      .getByProviderId(this.user.id)
       .then((response: any) => {
         this.listings = response;
         console.log(this.listings);
@@ -44,6 +44,9 @@ export class ListingsPage implements OnInit {
 
   navToProfile() {
     this.navCtrl.navigateForward("profile");
+  }
+  navToCreateProperty(){
+    this.navCtrl.navigateForward("createproperty");
   }
   navToDetails(id){
     this.navCtrl.navigateForward("listingdetails", {

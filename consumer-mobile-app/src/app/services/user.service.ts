@@ -49,7 +49,7 @@ getById(userId){
 }
 updateById(userId){
     return new Promise((resolve, reject) => {
-        this.http.post('http://localhost:2000/api/user/update' + userId, userId).subscribe(response =>{
+        this.http.post('http://localhost:2000/api/user/update/' + userId, userId).subscribe(response =>{
             resolve(response);
         }),
         err =>{
@@ -61,7 +61,7 @@ updateById(userId){
 
 remove(userId){
     return new Promise((resolve, reject) => {
-        this.http.post('http://localhost:2000/api/user/delete', userId).subscribe(response =>{
+        this.http.post('http://localhost:2000/api/user/delete/', userId).subscribe(response =>{
             resolve(response);
         }),
         err =>{

@@ -33,6 +33,21 @@ module.exports = class Property {
       });
     });
   }
+  getByProviderId(id) {
+    return new Promise((resolve, reject) => {
+      mysqlConn.query(
+        "Select * from property where providerId = ? ",
+        id,
+        (err, res) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(res);
+          }
+        }
+      );
+    });
+  }
   getById(id) {
     return new Promise((resolve, reject) => {
       mysqlConn.query(

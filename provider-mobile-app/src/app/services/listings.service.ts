@@ -45,6 +45,17 @@ getById(id){
         }
     });
 }
+getByProviderId(id){
+    return new Promise((resolve, reject) => {
+        this.http.get('http://localhost:2000/api/property/providerId/' + id).subscribe(response =>{
+            resolve(response);
+        }),
+        err =>{
+            console.log(err);
+            reject(err.msg);
+        }
+    });
+}
 updateById(id){
     return new Promise((resolve, reject) => {
         this.http.post('http://localhost:2000/api/property/update/' + id, id).subscribe(response =>{
