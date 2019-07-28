@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'menu', loadChildren: './menu/menu.module#MenuPageModule' },
   { path: 'createproperty', loadChildren: './pages/createproperty/createproperty.module#CreatepropertyPageModule' },
   { path: 'editproperty', loadChildren: './pages/editproperty/editproperty.module#EditpropertyPageModule' },
+  { path: 'bookings', loadChildren: './pages/bookings/bookings.module#BookingsPageModule' },
 ];
 
 @NgModule({

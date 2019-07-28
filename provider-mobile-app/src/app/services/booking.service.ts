@@ -54,9 +54,9 @@ getByPropertyId(id){
         }
     });
 }
-updateById(id){
+updateById(id, obj){
     return new Promise((resolve, reject) => {
-        this.http.post('http://localhost:2000/api/booking/update/' + id, id).subscribe(response =>{
+        this.http.post('http://localhost:2000/api/booking/update/' + id, obj).subscribe(response =>{
             resolve(response);
         }),
         err =>{

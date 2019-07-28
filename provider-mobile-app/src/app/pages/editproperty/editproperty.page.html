@@ -1,10 +1,31 @@
 <ion-header>
   <ion-toolbar>
       <ion-button shape="round" size="small" onclick="history.back()" color="danger">Back</ion-button>
-    <ion-title>editproperty</ion-title>
+    <ion-title>Edit Property</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+    <ion-card>
+        <ion-card-header text-center>
+          <ion-card-title>Property Details</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>
+            <ion-input type="text" placeholder="Property Name" [(ngModel)]="name"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" placeholder="Location" [(ngModel)]="location"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" placeholder="Price" [(ngModel)]="price"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" placeholder="Image URL" [(ngModel)]="imageUrl"></ion-input>
+          </ion-item>
+          <div>
+            <ion-button size="medium" expand="block" (click)="edit()">Submit</ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
 </ion-content>

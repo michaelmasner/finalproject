@@ -19,19 +19,5 @@
     </div>
     <p style="float:right">R{{price}} ZAR per night</p>
   </ion-card>
-  <ion-card>
-    <ion-card-header>
-      <ion-title>Booking Information</ion-title>
-    </ion-card-header>
-    <ion-item>
-      <ion-label>Start Date:</ion-label>
-      <ion-datetime ([ngModel])="dateTo" (ionChange)="dateToChanged($event)" displayFormat="DDDD MMM D, YYYY" min="2005" max="2021" value={{today}}></ion-datetime>
-    </ion-item>
-    <ion-item>
-      <ion-label>End Date:</ion-label>
-      <ion-datetime ([ngModel])="dateTo" (ionChange)="dateToChanged($event)" displayFormat="DDDD MMM D, YYYY" min="2005" max="2021" value={{today}}></ion-datetime>
-    </ion-item>
-    <ion-button text-align="center" shape="round" size="small" (click)="book()">Book</ion-button>
-  </ion-card>
-
+  <ion-button shape="round" size="small"(click)="navToBookingRequests()">Booking Requests</ion-button>
 </ion-content>

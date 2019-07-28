@@ -6,7 +6,7 @@ module.exports = class Property {
   constructor(newName, newLocation, newImgUrl, newPrice, newProviderId) {
     this.name = newName;
     this.location = newLocation;
-    this.imgUrl = newImgUrl;
+    this.imageUrl = newImgUrl;
     this.price = newPrice;
     this.providerId = newProviderId;
   }
@@ -66,8 +66,8 @@ module.exports = class Property {
   updateByID(Id, listing) {
     return new Promise((resolve, reject) => {
       mysqlConn.query(
-        "UPDATE property SET name = ?, location = ?, imgUrl = ?, price = ?, providerId = ? WHERE id = ?",
-        [listing.name, listing.location, listing.imgUrl, listing.price, listing.providerId, Id],
+        "UPDATE property SET name = ?, location = ?, imageUrl = ?, price = ?, providerId = ? WHERE id = ?",
+        [listing.name, listing.location, listing.imageUrl, listing.price, listing.providerId, Id],
         (err, res) => {
           if (err) {
             reject(err);

@@ -23,10 +23,7 @@ export class ListingdetailsPage implements OnInit {
   public listLocation: string;
   public price: number;
   public image_url: string;
-  public today = new Date();
-  public dateTo = new Date().toISOString();
-  public dateFrom = new Date().toISOString();
-
+  
   constructor(
     private listingService: ListingsService,
     // private listing: Listing,
@@ -43,16 +40,10 @@ export class ListingdetailsPage implements OnInit {
     });
     await alert.present();
   }
-  async presentToast() {
-    const toast = await this.toastCtrl.create({
-      message: 'Booked',
-      duration: 2000
-    });
-    await toast.present();
-  }
   ngOnInit() {
     const params = new URLSearchParams(location.search);
      this.listId = params.get("property");
+    localStorage.setItem("listId", this.listId);
 
     this.listingService
       .getByProviderId(this.listId)
@@ -66,31 +57,11 @@ export class ListingdetailsPage implements OnInit {
         this.presentAlert(err);
       });
   }
-  // Rename function names
-  dateToChanged(date){
-    console.log(date.detail.value);
-    console.log(this.dateTo);
-  }
-  dateFromChanged(date){
-    console.log(date.detail.value);
-    console.log(this.dateFrom);
-  }
-  // Booking function
-  book(){
-    const newBooking = {
-      dateFrom: this.dateFrom,
-      dateTo: this.dateTo,
-      userId: this.userId,
-      propertyId: parseInt(this.listId),
-      status: "NEW"
-    }
-    this.bookingService.create(newBooking).then((response:any) =>{
-      this.presentToast();
-    }).catch(err =>{
-      this.presentAlert(err);
-    });
-  }
+
 navToEdit(){
-  this.navCtrl.navigateForward("editproperty");
+  this.navCtrl.navigateForward("editproperty")
+}
+navToBookingRequests(){
+  this.navCtrl.navigateForward("bookings");
 }
 }
