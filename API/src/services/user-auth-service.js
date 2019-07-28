@@ -21,7 +21,7 @@ module.exports = class UserAuthService {
           if (dbUser.length) {
             //const match = bcrypt.compare(dbUser[0].password, authUser.password);
             if (dbUser[0].password == authUser.password) {
-              resolve(dbUser);
+              resolve(dbUser[0]);
             } else {
               reject("incorrect password");
             }
@@ -43,21 +43,11 @@ module.exports = class UserAuthService {
           const dbUser = users.filter(user => {
             return user.email == authUser.email;
           });
-          if (dbUser.length >= 1) {
+          if (dbUser.length == 1) {
             if (dbUser[0].email == authUser.email) {
               reject("User email is already taken. Try again.");
             }
           } else {
-            // const passwordHash = hashPassword(authUser.password);
-            // const userObj = {
-            //   name: authUser.name,
-            //   surname: authUser.surname,
-            //   cellphone: authUser.cellPhone,
-            //   email: authUser.email,
-            //   password: passwordHash,
-            //   role: authUser.role
-            // };
-            // const newUser = new User(userObj);
             User.prototype
               .create(authUser)
               .then(user => resolve(user))
@@ -69,24 +59,7 @@ module.exports = class UserAuthService {
         });
     });
   }
-  // async getJwtToken(user, rememberUser){
-  //   let jwtObject = {};
-  //   jwtObject.id = user.id;
-  //   jwtObject.name = user.name;
-  //   jwtObject.surname = user.surname;
-  //   jwtObject.cellPhone = user.cellPhone;
-  //   jwtObject.email = user.email;
-  //   jwtObject.role = user.role;
-  //   jwtObject.remember = user.rememberUser;
-
-  //   return await jwt.sign(Object.assign({}, jwtObject), "secret key",{
-  //     expiresIn: "1d"
-  //   });
-  // }
-
-  // async verifyToken(){
-  //   return await jwt.verify(token, "secret key");
-  // }
+  
 };
 
 

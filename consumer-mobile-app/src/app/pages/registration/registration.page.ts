@@ -55,7 +55,7 @@ export class RegistrationPage {
       .then(res => {
         const testId = localStorage.getItem("userId");
         console.log(testId);
-        this.navCtrl.navigateForward("profile");
+        this.navCtrl.navigateForward("listings");
       })
       .catch(err => {
         if(this.email != null){

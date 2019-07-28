@@ -16,7 +16,7 @@ export class RegistrationPage {
   public cellphone: string;
   public email: string;
   public password: string;
-  public role: string = "user";
+  public role: string = "provider";
   public users: any;
 
   constructor(
@@ -55,7 +55,7 @@ export class RegistrationPage {
       .then(res => {
         const testId = localStorage.getItem("userId");
         console.log(testId);
-        this.navCtrl.navigateForward("profile");
+        this.navCtrl.navigateForward("listings");
       })
       .catch(err => {
         if(this.email != null){
