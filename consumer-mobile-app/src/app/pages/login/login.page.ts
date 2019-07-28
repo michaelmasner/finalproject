@@ -39,7 +39,6 @@ export class LoginPage {
       .login(authUser)
       .then(res => {
         const testId = localStorage.getItem("userId");
-        //console.log(testId);
 
         this.navCtrl.navigateForward("listings");
       })

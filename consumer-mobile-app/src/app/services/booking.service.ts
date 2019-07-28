@@ -1,19 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Listing } from '../models/listings.model';
+import { Booking } from '../models/booking.model';
 import { HttpClient } from '@angular/common/http';
 import { NavController } from '@ionic/angular';
-
 @Injectable({
   providedIn: 'root'
 })
-export class ListingsService {
-  public listing = new Listing();
+export class BookingService {
 
   constructor(private http: HttpClient, private navCtrl: NavController) { }
 
-  create(listing: Listing){
+  create(booking: Booking){
     return new Promise((resolve, reject) =>{
-        this.http.post('http://localhost:2000/api/property/create', listing).subscribe(response => {
+        this.http.post('http://localhost:2000/api/booking/create', booking).subscribe(response => {
             resolve(response);
         }),
         err =>{
@@ -25,7 +23,7 @@ export class ListingsService {
 
 getAll(){
     return new Promise((resolve, reject) =>{
-        this.http.get('http://localhost:2000/api/property/').subscribe(response => {
+        this.http.get('http://localhost:2000/api/booking/').subscribe(response => {
             resolve(response);
         }),
         err =>{
@@ -36,7 +34,18 @@ getAll(){
 }
 getById(id){
     return new Promise((resolve, reject) => {
-        this.http.get('http://localhost:2000/api/property/' + id).subscribe(response =>{
+        this.http.get('http://localhost:2000/api/booking/' + id).subscribe(response =>{
+            resolve(response);
+        }),
+        err =>{
+            console.log(err);
+            reject(err.msg);
+        }
+    });
+}
+getByPropertyId(id){
+    return new Promise((resolve, reject) => {
+        this.http.get('http://localhost:2000/api/booking/getByPropertyId' + id).subscribe(response =>{
             resolve(response);
         }),
         err =>{
@@ -47,7 +56,7 @@ getById(id){
 }
 updateById(id){
     return new Promise((resolve, reject) => {
-        this.http.post('http://localhost:2000/api/property/update/' + id, id).subscribe(response =>{
+        this.http.post('http://localhost:2000/api/booking/update/' + id, id).subscribe(response =>{
             resolve(response);
         }),
         err =>{
@@ -59,7 +68,7 @@ updateById(id){
 
 remove(id){
     return new Promise((resolve, reject) => {
-        this.http.post('http://localhost:2000/api/property/delete/' + id, id).subscribe(response =>{
+        this.http.post('http://localhost:2000/api/booking/delete/' + id, id).subscribe(response =>{
             resolve(response);
         }),
         err =>{
@@ -68,4 +77,4 @@ remove(id){
         }
     });
 }
-};
+}

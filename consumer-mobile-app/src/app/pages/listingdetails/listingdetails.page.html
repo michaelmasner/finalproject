@@ -24,14 +24,13 @@
     </ion-card-header>
     <ion-item>
       <ion-label>Start Date:</ion-label>
-      <ion-datetime displayFormat="DDDD MMM D, YYYY" min="2005" max="2021" value={{today}}></ion-datetime>
+      <ion-datetime ([ngModel])="dateTo" (ionChange)="dateToChanged($event)" displayFormat="DDDD MMM D, YYYY" min="2005" max="2021" value={{today}}></ion-datetime>
     </ion-item>
     <ion-item>
-        <ion-label>End Date:</ion-label>
-        <ion-datetime displayFormat="DDDD MMM D, YYYY" min="2005" max="2021" value={{today}}></ion-datetime>
-      </ion-item>
-    <ion-button text-align="center" shape="round" size="small">Book</ion-button>
+      <ion-label>End Date:</ion-label>
+      <ion-datetime ([ngModel])="dateTo" (ionChange)="dateToChanged($event)" displayFormat="DDDD MMM D, YYYY" min="2005" max="2021" value={{today}}></ion-datetime>
+    </ion-item>
+    <ion-button text-align="center" shape="round" size="small" (click)="book()">Book</ion-button>
   </ion-card>
-
 
 </ion-content>

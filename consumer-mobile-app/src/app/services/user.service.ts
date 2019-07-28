@@ -15,7 +15,7 @@ constructor(private http: HttpClient, private navCtrl: NavController){}
 
 create(user: User){
     return new Promise((resolve, reject) =>{
-        this.http.post('http://localhost:2000/api/user/', user).subscribe(response => {
+        this.http.post('http://localhost:2000/api/user/create', user).subscribe(response => {
             resolve(response);
         }),
         err =>{

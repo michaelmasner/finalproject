@@ -14,7 +14,6 @@ router.get("/", (req, res) => {
             res.status(400).send(err);
         });
 });
-
 router.post("/create", (req, res) => {
     Booking.prototype
         .create(req.body)
@@ -26,11 +25,22 @@ router.post("/create", (req, res) => {
         });
 });
 
-router.patch("/update/:id", (req, res) => {
+router.post("/update/:id", (req, res) => {
     Booking.prototype
         .updateByID(req.params.id, req.body)
         .then(users => {
             res.send(users);
+        })
+        .catch(err => {
+            res.status(400).send(err);
+        });
+});
+
+router.get('/getByPropertyId', (req, res) => {
+    Booking.prototype
+        .getByListingId(req.body.propertyId)
+        .then(bookings => {
+            res.send(bookings);
         })
         .catch(err => {
             res.status(400).send(err);

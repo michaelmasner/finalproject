@@ -1,10 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { ListingsService } from "../../services/listings.service";
 // import { Listing } from "../../models/listings.model";
-
+import { Booking } from "../../models/booking.model";
+import { BookingService } from "../../services/booking.service";
 import {
   // NavController,
-  // ToastController,
+  ToastController,
   AlertController
 } from "@ionic/angular";
 
@@ -15,20 +16,25 @@ import {
   styleUrls: ["./listingdetails.page.scss"]
 })
 export class ListingdetailsPage implements OnInit {
+
   public listId: string;
-  public userId: number;
+  public userId: number = parseInt(localStorage.getItem("userId"));
   public listName: string;
   public listLocation: string;
   public price: string;
   public image_url: string;
   public today = new Date();
+  public dateTo = new Date().toISOString();
+  public dateFrom = new Date().toISOString();
 
   constructor(
     private listingService: ListingsService,
     // private listing: Listing,
     // private navCtrl: NavController,
-    // private toastCtrl: ToastController,
-    private alertCtrl: AlertController
+    private toastCtrl: ToastController,
+    private alertCtrl: AlertController,
+    //private booking: Booking,
+    private bookingService: BookingService
   ) {}
   async presentAlert(err) {
     const alert = await this.alertCtrl.create({
@@ -37,10 +43,16 @@ export class ListingdetailsPage implements OnInit {
     });
     await alert.present();
   }
+  async presentToast() {
+    const toast = await this.toastCtrl.create({
+      message: 'Booked',
+      duration: 2000
+    });
+    await toast.present();
+  }
   ngOnInit() {
     const params = new URLSearchParams(location.search);
      this.listId = params.get("property");
-    // this.userId = parseInt(localStorage.getItem("userId"));
 
     this.listingService
       .getById(this.listId)
@@ -53,5 +65,29 @@ export class ListingdetailsPage implements OnInit {
       .catch(err => {
         this.presentAlert(err);
       });
+  }
+  // Rename function names
+  dateToChanged(date){
+    console.log(date.detail.value);
+    console.log(this.dateTo);
+  }
+  dateFromChanged(date){
+    console.log(date.detail.value);
+    console.log(this.dateFrom);
+  }
+  // Booking function
+  book(){
+    const newBooking = {
+      dateFrom: this.dateFrom,
+      dateTo: this.dateTo,
+      userId: this.userId,
+      propertyId: parseInt(this.listId),
+      status: "NEW"
+    }
+    this.bookingService.create(newBooking).then((response:any) =>{
+      this.presentToast();
+    }).catch(err =>{
+      this.presentAlert(err.statusText);
+    });
   }
 }
