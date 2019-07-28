@@ -21,7 +21,7 @@ export class ListingdetailsPage implements OnInit {
   public userId: number = parseInt(localStorage.getItem("userId"));
   public listName: string;
   public listLocation: string;
-  public price: string;
+  public price: number;
   public image_url: string;
   public today = new Date();
   public dateTo = new Date().toISOString();
@@ -59,7 +59,7 @@ export class ListingdetailsPage implements OnInit {
       .then((response: any) => {
         this.listName = response[0].name;
         this.listLocation = response[0].location;
-        this.price = response[0].price;
+        this.price = parseInt(response[0].price);
         this.image_url = response[0].imageUrl;
       })
       .catch(err => {
