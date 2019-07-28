@@ -46,7 +46,7 @@ export class ListingdetailsPage implements OnInit {
     localStorage.setItem("listId", this.listId);
 
     this.listingService
-      .getByProviderId(this.listId)
+      .getById(this.listId)
       .then((response: any) => {
         this.listName = response[0].name;
         this.listLocation = response[0].location;
@@ -61,7 +61,10 @@ export class ListingdetailsPage implements OnInit {
 navToEdit(){
   this.navCtrl.navigateForward("editproperty")
 }
-navToBookingRequests(){
-  this.navCtrl.navigateForward("bookings");
-}
+navToBookingRequests(id){
+  this.navCtrl.navigateForward("bookings", {
+    queryParams:{
+      property: id
+    }
+  });}
 }

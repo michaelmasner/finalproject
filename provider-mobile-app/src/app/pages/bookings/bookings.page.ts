@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BookingService } from '../../services/booking.service';
 
 @Component({
   selector: 'app-bookings',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bookings.page.scss'],
 })
 export class BookingsPage implements OnInit {
+//   public listings: Array<Listing> = [];
 
-  constructor() { }
+//   constructor(private bookingService: BookingService) { }
 
   ngOnInit() {
   }
+// accept(){
 
+// }
+// reject(){
+
+// }
 }
