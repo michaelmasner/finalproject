@@ -14,7 +14,7 @@ import {
 export class EditpropertyPage implements OnInit {
   public name: string;
   public location: string;
-  public price: string;
+  public price: number;
   public imageUrl: string;
 
   constructor(
@@ -30,7 +30,7 @@ export class EditpropertyPage implements OnInit {
       .then((response: any) => {
         this.name = response[0].name;
         this.location = response[0].location;
-        this.price = response[0].price;
+        this.price = parseInt(response[0].price);
         this.imageUrl = response[0].imageUrl;
       })
       .catch(err => {
@@ -56,7 +56,7 @@ export class EditpropertyPage implements OnInit {
     const list = {
       name: this.name,
       location: this.location,
-      price: this.price,
+      price: String(this.price),
       imageUrl: this.imageUrl,
       providerId: +localStorage.getItem("userId")
     }

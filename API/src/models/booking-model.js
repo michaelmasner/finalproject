@@ -64,8 +64,8 @@ module.exports = class Booking {
   updateByID(id, obj) {
     return new Promise((resolve, reject) => {
       mysqlConn.query(
-        "UPDATE bookings SET dateFrom = ?, dateTo = ?, userId = ?, status = ? WHERE id = ?",
-        [obj.dateFrom, obj.dateTo, obj.userId, status.status, id],
+        "UPDATE bookings SET status = ? WHERE id = ?",
+        [obj.status, id],
         (err, res) => {
           if (err) {
             reject(err);

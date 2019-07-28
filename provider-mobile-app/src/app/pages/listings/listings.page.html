@@ -7,6 +7,7 @@
 </ion-header>
 
 <ion-content>
+    <ion-button shape="round" size="small"(click)="navToCreateProperty()">Create New Property</ion-button>
   <ion-card *ngFor="let listing of listings" (click)="navToDetails(listing.id)">
     <div>
       <img src="{{listing.imageUrl}}">
@@ -17,5 +18,5 @@
     </div>
     <ion-card-subtitle>{{listing.location}}</ion-card-subtitle>
   </ion-card>
-  <ion-button shape="round" size="small"(click)="navToCreateProperty()">Create New Property</ion-button>
+
 </ion-content>
