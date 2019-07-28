@@ -25,7 +25,7 @@ export class LoginPage {
   }
   async presentAlert(err) {
     const alert = await this.alertCtrl.create({
-      header: err,
+      header: "Incorrect credentials",
       buttons: ["OK"]
     });
     await alert.present();
@@ -43,7 +43,7 @@ export class LoginPage {
         this.navCtrl.navigateForward("listings");
       })
       .catch(err => {
-        this.presentAlert(err.error.text);
+        this.presentAlert(err);
       });
   }
   navToRegistration() {

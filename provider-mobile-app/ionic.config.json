@@ -1,5 +1,7 @@
 {
   "name": "fs-customer-app",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

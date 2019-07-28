@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 
+
 @Injectable({
   providedIn: "root"
 })
@@ -12,13 +13,11 @@ export class AuthService {
       const headers = new HttpHeaders();
 
       this.http
-        .post("http://localhost:2000/api/providerauth/login", authUser, {
-          headers
-        })
+        .post("http://localhost:2000/api/userauth/login", authUser, { headers })
         .subscribe(
           (response: any) => {
-            console.log(response.id);
-            localStorage.setItem("providerId", response.id);
+            console.log(response[0].id);
+            localStorage.setItem("userId", response[0].id);
             resolve(response);
           },
           err => {
@@ -27,26 +26,22 @@ export class AuthService {
         );
     });
   }
-  register(authUser) {
+  register(authUser){
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders();
-      console.log("OMG");
 
-      this.http
-        .post("http://localhost:2000/api/providerauth/register", authUser, {
-          headers
-        })
-        .subscribe(
-          (response: any) => {
-            console.log(response.id);
-            localStorage.setItem("providerId", response.id);
-            resolve(response);
-          },
-          err => {
-            console.log(err);
-            reject(err);
-          }
-        );
+      this.http.post("http://localhost:2000/api/userauth/register", authUser, {headers})
+      .subscribe(
+        (response: any) => {
+          console.log(response.id);
+          localStorage.setItem("userId", response[0].id);
+          resolve(response);
+        },
+        err => {
+          console.log(err);
+          reject(err);
+        }
+      );
     });
   }
-}
+};

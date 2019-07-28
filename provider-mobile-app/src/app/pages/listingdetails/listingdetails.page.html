@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button shape="round" size="small" onclick="history.back()" color="danger">Back</ion-button>
+    <ion-title text-center>Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <div>
+      <img src="{{image_url}}">
+    </div>
+    <div>
+      <ion-card-title>{{listName}}</ion-card-title>
+    </div>
+    <div>
+      <ion-card-subtitle>{{listLocation}}</ion-card-subtitle>
+    </div>
+    <p style="float:right">{{price}}</p>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-title>Booking Information</ion-title>
+    </ion-card-header>
+    <ion-item>
+      <ion-label>Start Date:</ion-label>
+      <ion-datetime ([ngModel])="dateTo" (ionChange)="dateToChanged($event)" displayFormat="DDDD MMM D, YYYY" min="2005" max="2021" value={{today}}></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>End Date:</ion-label>
+      <ion-datetime ([ngModel])="dateTo" (ionChange)="dateToChanged($event)" displayFormat="DDDD MMM D, YYYY" min="2005" max="2021" value={{today}}></ion-datetime>
+    </ion-item>
+    <ion-button text-align="center" shape="round" size="small" (click)="book()">Book</ion-button>
+  </ion-card>
+
+</ion-content>

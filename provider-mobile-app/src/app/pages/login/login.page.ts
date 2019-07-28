@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { NavController, AlertController } from "@ionic/angular";
 import { User } from "../../models/user.models";
 import { UserService } from "../../services/user.service";
@@ -9,7 +9,7 @@ import { AuthService } from "../../services/auth.service";
   templateUrl: "./login.page.html",
   styleUrls: ["./login.page.scss"]
 })
-export class LoginPage  {
+export class LoginPage {
   public user = new User();
   public email: string;
   public password: string;
@@ -25,7 +25,7 @@ export class LoginPage  {
   }
   async presentAlert(err) {
     const alert = await this.alertCtrl.create({
-      header: "Incorrect login credentials",
+      header: "Incorrect Credentials.",
       buttons: ["OK"]
     });
     await alert.present();
@@ -39,13 +39,8 @@ export class LoginPage  {
       .login(authUser)
       .then(res => {
         const testId = localStorage.getItem("userId");
-        console.log(testId);
 
-        this.navCtrl.navigateForward("profile", {
-          queryParams: {
-            user: res
-          }
-        });
+        this.navCtrl.navigateForward("listings");
       })
       .catch(err => {
         this.presentAlert(err);
@@ -55,3 +50,4 @@ export class LoginPage  {
     this.navCtrl.navigateForward("registration");
   }
 }
+

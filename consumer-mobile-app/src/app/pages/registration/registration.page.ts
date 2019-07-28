@@ -29,7 +29,7 @@ export class RegistrationPage {
   }
   async presentAlert(err) {
     const alert = await this.alertCtrl.create({
-      header: err,
+      header: "Please fill in credentials.",
       buttons: ["OK"]
     });
     await alert.present();
@@ -58,7 +58,12 @@ export class RegistrationPage {
         this.navCtrl.navigateForward("profile");
       })
       .catch(err => {
-          this.presentAlert(err.error);
+        if(this.email != null){
+          this.emailAlert(err.error);
+        }
+        else{
+          this.presentAlert(err);
+        } 
       });
   }
   navToLogin() {

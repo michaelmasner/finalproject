@@ -20,7 +20,7 @@ export class ProfilePage implements OnInit {
 
   async presentAlert(err) {
     const alert = await this.alertCtrl.create({
-      header: err,
+      header: "Error.",
       buttons: ["OK"]
     });
     await alert.present();
@@ -35,7 +35,7 @@ export class ProfilePage implements OnInit {
         this.cellphone = response[0].cellphone;
       })
       .catch(err => {
-        this.presentAlert(err.statusText);
+        this.presentAlert(err);
       });
   }
   navController(){

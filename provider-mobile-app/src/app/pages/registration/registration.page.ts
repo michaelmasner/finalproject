@@ -16,7 +16,7 @@ export class RegistrationPage {
   public cellphone: string;
   public email: string;
   public password: string;
-  public role: string = "provider";
+  public role: string = "user";
   public users: any;
 
   constructor(
@@ -27,40 +27,46 @@ export class RegistrationPage {
   ) {
     this.user = userService.user;
   }
-
-  async passwordAlert(err) {
+  async presentAlert(err) {
     const alert = await this.alertCtrl.create({
-      header: "Your password and confirmation do not match",
+      header: "Please fill in credentials.",
       buttons: ["OK"]
     });
     await alert.present();
   }
   async emailAlert(err) {
     const alert = await this.alertCtrl.create({
-      header: "Email is taken",
+      header: err,
       buttons: ["OK"]
     });
     await alert.present();
   }
-  register(){
+  register() {
     const authUser = {
       firstName: this.name,
       lastName: this.surname,
       cellphone: this.cellphone,
       email: this.email,
       password: this.password,
-      role: "provider"
+      role: this.role
     };
-    this.authService.register(authUser).then(res =>{
-      const testId = localStorage.getItem("userId");
-      console.log(testId);
-      this.navCtrl.navigateForward("profile",{
-        queryParams:{
-          user: res
+    this.authService
+      .register(authUser)
+      .then(res => {
+        const testId = localStorage.getItem("userId");
+        console.log(testId);
+        this.navCtrl.navigateForward("profile");
+      })
+      .catch(err => {
+        if(this.email != null){
+          this.emailAlert(err.error);
         }
+        else{
+          this.presentAlert(err);
+        } 
       });
-    }).catch(err => {
-      this.passwordAlert(err);
-    })
+  }
+  navToLogin() {
+    this.navCtrl.navigateForward("login");
   }
 }
