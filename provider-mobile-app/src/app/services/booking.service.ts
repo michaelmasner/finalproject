@@ -66,6 +66,17 @@ updateById(id, obj){
     });
 }
 
+removeByPropertyId(id){
+    return new Promise((resolve, reject) => {
+        this.http.post("http://localhost:2000/api/booking/deleteByPropertyId/", {"propertyId": id}).subscribe(response =>{
+            resolve(response);
+        }),
+        err =>{
+            console.log(err);
+            reject(err.msg);
+        }
+    });
+}
 remove(id){
     return new Promise((resolve, reject) => {
         this.http.post('http://localhost:2000/api/booking/delete/', {"id": id}).subscribe(response =>{
@@ -77,4 +88,4 @@ remove(id){
         }
     });
 }
-}
+};

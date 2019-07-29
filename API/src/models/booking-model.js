@@ -3,11 +3,11 @@ var mysqlConn = require("../database/database");
 const fs = require("fs");
 
 module.exports = class Booking {
-  constructor(newDateFrom, newDateTo, newUserId, newProviderId, newStatus) {
+  constructor(newDateFrom, newDateTo, newUserId, newPropertyId, newStatus) {
     this.dateFrom = newDateFrom;
     this.dateTo = newDateTo;
     this.userId = newUserId;
-    this.providerId = newProviderId;
+    this.propertyId = newPropertyId;
     this.status = newStatus;
   }
   
@@ -79,6 +79,17 @@ module.exports = class Booking {
   remove(id) {
     return new Promise((resolve, reject) => {
       mysqlConn.query("DELETE FROM bookings WHERE id = ?", id, (err, res) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(res);
+        }
+      });
+    });
+  }
+  removeByPropertyId(id){
+    return new Promise((resolve, reject) => {
+      mysqlConn.query("DELETE FROM bookings WHERE propertyId = ?", id, (err, res) => {
         if (err) {
           reject(err);
         } else {

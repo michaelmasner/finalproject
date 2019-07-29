@@ -4,7 +4,7 @@ import { ListingsService } from "../../services/listings.service";
 import { Booking } from "../../models/booking.model";
 import { BookingService } from "../../services/booking.service";
 import {
-  // NavController,
+  NavController,
   ToastController,
   AlertController
 } from "@ionic/angular";
@@ -30,7 +30,7 @@ export class ListingdetailsPage implements OnInit {
   constructor(
     private listingService: ListingsService,
     // private listing: Listing,
-    // private navCtrl: NavController,
+    private navCtrl: NavController,
     private toastCtrl: ToastController,
     private alertCtrl: AlertController,
     //private booking: Booking,

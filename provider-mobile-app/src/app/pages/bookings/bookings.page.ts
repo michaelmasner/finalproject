@@ -19,7 +19,8 @@ export class BookingsPage implements OnInit {
   constructor(
     private bookingService: BookingService,
     private alertCtrl: AlertController,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    private navCtrl: NavController
   ) {}
 
   async presentAlert(err) {
@@ -56,25 +57,29 @@ export class BookingsPage implements OnInit {
         this.presentAlert(err);
       });
   }
-  accept(){
+  accept(id){
     const statusChange = {
       status: "ACCEPTED"
     }
-    this.bookingService.updateById(parseInt(this.listId), statusChange).then((response:any)=>{
+    this.bookingService.updateById(id, statusChange).then((response:any)=>{
       this.presentToast();
+      this.ngOnInit();
     }).catch(err =>{
       this.presentAlert(err);
     })
   }
-  reject(){
+  reject(id){
     const statusChange = {
       status: "REJECTED"
     }
-    this.bookingService.updateById(parseInt(this.listId), statusChange).then((response:any)=>{
+    this.bookingService.updateById(id, statusChange).then((response:any)=>{
       this.presentToast2();
+      this.ngOnInit();
     }).catch(err =>{
       this.presentAlert(err);
     })
   }
-
+  navToDetails(){
+    this.navCtrl.navigateForward("listingdetails");
+  }
 }

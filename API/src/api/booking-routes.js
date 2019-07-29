@@ -57,6 +57,16 @@ router.get("/:id", (req, res) => {
             res.status(400).send(err);
         });
 });
+router.post("/deleteByPropertyId/", (req, res) => {
+    Booking.prototype
+        .removeByPropertyId(req.body.propertyId)
+        .then(users => {
+            res.send(users);
+        })
+        .catch(err => {
+            res.status(400).send(err);
+        });
+});
 
 router.post("/delete/", (req, res) => {
     Booking.prototype
@@ -67,7 +77,7 @@ router.post("/delete/", (req, res) => {
         .catch(err => {
             res.status(400).send(err);
         });
-
+        
 });
 
 

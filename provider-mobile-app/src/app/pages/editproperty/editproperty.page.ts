@@ -16,11 +16,12 @@ export class EditpropertyPage implements OnInit {
   public location: string;
   public price: number;
   public imageUrl: string;
-
+  public propertyId: string = localStorage.getItem("listId");
   constructor(
     private listingService: ListingsService,
     private alertCtrl: AlertController,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    private navCtrl: NavController
   ) {}
 
   ngOnInit() {
@@ -66,4 +67,11 @@ export class EditpropertyPage implements OnInit {
       this.presentAlert(err);
     });
   }
+  // navToDetails(id){
+  //   this.navCtrl.navigateForward("listingdetails", {
+  //     queryParams:{
+  //       property: id
+  //     }
+  //   });
+  // }
 }

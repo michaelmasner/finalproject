@@ -51,4 +51,5 @@ export class CreatepropertyPage implements OnInit {
       this.presentAlert(err);
     })
   }
+  
 }

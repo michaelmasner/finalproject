@@ -42,7 +42,7 @@ module.exports = class Provider {
     }
     getById(id){
         return new Promise((resolve, reject) => {
-            mysqlConn.query("Select * from provider where id = ? ", propId, (err, res) => {
+            mysqlConn.query("Select * from provider where id = ? ", id, (err, res) => {
                 if(err){
                     reject(err);
                 } else{

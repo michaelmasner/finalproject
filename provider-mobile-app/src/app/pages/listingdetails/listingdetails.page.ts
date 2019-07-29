@@ -65,6 +65,11 @@ export class ListingdetailsPage implements OnInit {
       });
   }
 delete(){
+  this.bookingService.removeByPropertyId(parseInt(this.listId)).then((response:any) =>{
+    console.log("deleted");
+  }).catch(err =>{
+    this.presentAlert(err);
+  })
   this.listingService.remove(parseInt(this.listId)).then((response:any) =>{
     this.presentToast();
   }).catch(err => {
@@ -81,4 +86,5 @@ navToBookingRequests(id){
     }
   });
 }
+
 }
