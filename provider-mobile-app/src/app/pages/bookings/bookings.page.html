@@ -7,8 +7,17 @@
   
   <ion-content>
     <ion-card *ngFor="let booking of bookings">
-      {{booking.dateTo}}
-      {{booking.dateFrom}}
+      <div>
+        Date From:{{booking.dateFrom}}
+      </div>
+      <div>
+        Date To: {{booking.dateTo}}
+      </div>
+      <div>
+        Status: {{booking.status}}
+      </div>
+      <ion-button color="success"shape="round" size="small"(click)="accept()">Accept</ion-button>
+      <ion-button color="danger"shape="round" size="small"(click)="reject()">Reject</ion-button>
     </ion-card>
   
   </ion-content>

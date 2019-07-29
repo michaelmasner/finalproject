@@ -18,7 +18,8 @@ export class BookingsPage implements OnInit {
 
   constructor(
     private bookingService: BookingService,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private toastCtrl: ToastController
   ) {}
 
   async presentAlert(err) {
@@ -27,6 +28,20 @@ export class BookingsPage implements OnInit {
       buttons: ["OK"]
     });
     await alert.present();
+  }
+  async presentToast() {
+    const toast = await this.toastCtrl.create({
+      message: 'Property Accepted.',
+      duration: 2000
+    });
+    await toast.present();
+  }
+  async presentToast2(){
+    const toast = await this.toastCtrl.create({
+      message: 'Property Rejected.',
+      duration: 2000
+    });
+    await toast.present();
   }
   ngOnInit() {
     const params = new URLSearchParams(location.search);
@@ -40,6 +55,26 @@ export class BookingsPage implements OnInit {
       .catch(err => {
         this.presentAlert(err);
       });
+  }
+  accept(){
+    const statusChange = {
+      status: "ACCEPTED"
+    }
+    this.bookingService.updateById(parseInt(this.listId), statusChange).then((response:any)=>{
+      this.presentToast();
+    }).catch(err =>{
+      this.presentAlert(err);
+    })
+  }
+  reject(){
+    const statusChange = {
+      status: "REJECTED"
+    }
+    this.bookingService.updateById(parseInt(this.listId), statusChange).then((response:any)=>{
+      this.presentToast2();
+    }).catch(err =>{
+      this.presentAlert(err);
+    })
   }
 
 }
