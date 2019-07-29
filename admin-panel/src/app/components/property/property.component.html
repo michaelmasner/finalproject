@@ -1,0 +1,23 @@
+<h3>Booking Requests</h3>
+<div class="table-responsive">
+  <table class="table table-striped table-sm">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th>ImageUrl</th>
+        <th>Price</th>
+        <th>ProviderId</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-row" *ngFor="let property of properties">
+        <td>{{property.name}}</td>
+        <td>{{property.location}}</td>
+        <td>{{property.imageUrl}}</td>
+        <td>{{property.price}}</td>
+        <td>{{property.providerId}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

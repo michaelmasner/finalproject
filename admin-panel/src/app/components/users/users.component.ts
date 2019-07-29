@@ -11,7 +11,8 @@ import { UserService } from '../../services/user/user.service';
 })
 export class UsersComponent implements OnInit {
 
-  users: Array<User>;
+  users: Array<User> = [];
+
   public barChartOptions: ChartOptions = {
     responsive: true,
     // We use these empty structures as placeholders for dynamic theming.
@@ -29,10 +30,15 @@ export class UsersComponent implements OnInit {
   constructor(
     private userService: UserService
   ) {
-    this.users = this.userService.getUsers();
+
   }
 
   ngOnInit() {
+    this.userService.getAll().then((response:any) =>{
+      console.log("Retrieved users");
+      this.users = response;
+    }).catch(err => {
+    });
   }
   // events
   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {

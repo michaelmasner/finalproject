@@ -9,6 +9,9 @@ import { RouterModule } from '@angular/router';
 import { ServiceProvidersComponent } from './components/service-providers/service-providers.component';
 import { HomeComponent } from './components/home/home.component';
 import { ChartsModule } from 'ng2-charts';
+import { HttpClientModule } from "@angular/common/http";
+import { BookingsComponent } from './components/bookings/bookings.component';
+import { PropertyComponent } from './components/property/property.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,16 @@ import { ChartsModule } from 'ng2-charts';
     UsersComponent,
     DashBoardComponent,
     ServiceProvidersComponent,
-    HomeComponent
+    HomeComponent,
+    BookingsComponent,
+    PropertyComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
-    ChartsModule
+    ChartsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,20 +1,18 @@
 import { Injectable } from '@angular/core';
-import { ServiceProvider } from '../../models/service-provider';
+import { Property } from '../../models/property';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
+export class PropertyService {
+  public property = new Property();
 
-export class ServiceProviderService {
-    public provider: ServiceProvider = new ServiceProvider();
+  constructor(private http: HttpClient) { }
 
-constructor(private http: HttpClient){}
-// CRUD:
-
-create(provider: ServiceProvider){
+  create(property: Property){
     return new Promise((resolve, reject) =>{
-        this.http.post('http://localhost:2000/api/provider/create', provider).subscribe(response => {
+        this.http.post('http://localhost:2000/api/property/create', property).subscribe(response => {
             resolve(response);
         }),
         err =>{
@@ -26,7 +24,7 @@ create(provider: ServiceProvider){
 
 getAll(){
     return new Promise((resolve, reject) =>{
-        this.http.get('http://localhost:2000/api/provider/').subscribe(response => {
+        this.http.get('http://localhost:2000/api/property/').subscribe(response => {
             resolve(response);
         }),
         err =>{
@@ -35,9 +33,9 @@ getAll(){
         }
     });
 }
-getById(userId){
+getById(id){
     return new Promise((resolve, reject) => {
-        this.http.get('http://localhost:2000/api/provider/' + userId).subscribe(response =>{
+        this.http.get('http://localhost:2000/api/property/' + id).subscribe(response =>{
             resolve(response);
         }),
         err =>{
@@ -46,9 +44,9 @@ getById(userId){
         }
     });
 }
-updateById(userId, obj){
+updateById(id, obj){
     return new Promise((resolve, reject) => {
-        this.http.post('http://localhost:2000/api/provider/update/' + userId, obj).subscribe(response =>{
+        this.http.post('http://localhost:2000/api/property/update/' + id, obj).subscribe(response =>{
             resolve(response);
         }),
         err =>{
@@ -60,7 +58,7 @@ updateById(userId, obj){
 
 remove(id){
     return new Promise((resolve, reject) => {
-        this.http.post('http://localhost:2000/api/user/delete/', {"id": id}).subscribe(response =>{
+        this.http.post('http://localhost:2000/api/property/delete/', {"id": id}).subscribe(response =>{
             resolve(response);
         }),
         err =>{
@@ -70,4 +68,3 @@ remove(id){
     });
 }
 };
-

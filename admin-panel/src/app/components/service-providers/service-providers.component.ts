@@ -10,17 +10,18 @@ import { ServiceProviderService } from '../../services/service-provider/service-
 })
 export class ServiceProvidersComponent implements OnInit {
 
-  serviceProviders: Array<ServiceProvider>;
+  serviceProviders: Array<ServiceProvider> = [];
 
   constructor(
-    private spService: ServiceProviderService
-  ) {
-
-    this.serviceProviders = this.spService.getServiceProviders();
-
-  }
+    private providerService: ServiceProviderService
+  ) {}
 
   ngOnInit() {
+    this.providerService.getAll().then((response:any) =>{
+      this.serviceProviders = response;
+    }).catch(err =>{
+      console.log(err);
+    })
   }
 
 }

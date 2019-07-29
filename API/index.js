@@ -18,6 +18,7 @@ app.use("/api/userauth", require("./src/api/user-auth-routes"));
 app.use("/api/providerauth", require("./src/api/provider-auth-routes"));
 app.use("/api/property", require("./src/api/property-routes"));
 app.use("/api/booking", require("./src/api/booking-routes"));
+app.use("/api/admin", require("./src/api/admin-routes"));
 
 // Custom Middleware
 app.use((req, res, next) => {

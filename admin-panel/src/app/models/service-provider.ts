@@ -1,7 +1,6 @@
 export class ServiceProvider {
-    name: string;
+    firstName: string;
     lastName: string;
     email: string;
     cellPhone: number;
-    numberOfListings: number;
-}
+};
