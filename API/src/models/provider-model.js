@@ -17,9 +17,9 @@ module.exports = class Provider {
         this.role = roles.PROVIDER;
 
     }
-    create(newProp) {
+    create(obj) {
         return new Promise((resolve, reject) => {
-            mysqlConn.query("INSERT INTO provider set ?", newProp, (err, res) => {
+            mysqlConn.query("INSERT INTO provider set ?", obj, (err, res) => {
                 if (err) {
                     reject(err);
                 } else {
@@ -40,7 +40,7 @@ module.exports = class Provider {
             });
         });
     }
-    getById(propId){
+    getById(id){
         return new Promise((resolve, reject) => {
             mysqlConn.query("Select * from provider where id = ? ", propId, (err, res) => {
                 if(err){
@@ -74,9 +74,9 @@ module.exports = class Provider {
           );
         });
       }
-    remove(propId){
+    remove(id){
         return new Promise((resolve, reject) => {
-            mysqlConn.query("DELETE FROM provider WHERE id = ?", propId, (err, res) => {
+            mysqlConn.query("DELETE FROM provider WHERE id = ?", id, (err, res) => {
                 if(err){
                     reject(err);
                 } else{

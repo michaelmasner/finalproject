@@ -59,9 +59,9 @@ router.get("/providerId/:id", (req, res) => {
         });
 });
 
-router.post("/delete/:id", (req, res) => {
+router.post("/delete/", (req, res) => {
     Property.prototype
-        .remove(req.params.id)
+        .remove(req.body.id)
         .then(users => {
             res.send(users);
         })

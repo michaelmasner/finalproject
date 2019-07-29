@@ -68,7 +68,7 @@ updateById(id, obj){
 
 remove(id){
     return new Promise((resolve, reject) => {
-        this.http.post('http://localhost:2000/api/booking/delete/' + id, id).subscribe(response =>{
+        this.http.post('http://localhost:2000/api/booking/delete/', id).subscribe(response =>{
             resolve(response);
         }),
         err =>{

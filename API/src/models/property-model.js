@@ -78,9 +78,9 @@ module.exports = class Property {
       );
     });
   }
-  remove(Id) {
+  remove(id) {
     return new Promise((resolve, reject) => {
-      mysqlConn.query("DELETE FROM property WHERE id = ?", Id, (err, res) => {
+      mysqlConn.query("DELETE FROM property WHERE id = ?", id, (err, res) => {
         if (err) {
           reject(err);
         } else {

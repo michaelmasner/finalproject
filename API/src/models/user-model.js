@@ -39,11 +39,11 @@ module.exports = class User {
       });
     });
   }
-  getById(userId) {
+  getById(id) {
     return new Promise((resolve, reject) => {
       mysqlConn.query(
         "Select * from user where id = ? ",
-        userId,
+        id,
         (err, res) => {
           if (err) {
             reject(err);
@@ -54,7 +54,7 @@ module.exports = class User {
       );
     });
   }
-  updateByID(userId, user) {
+  updateByID(id, user) {
     return new Promise((resolve, reject) => {
       mysqlConn.query(
         "UPDATE user SET name = ?, surname = ?, cellphone = ?, email = ?, password = ?, role = ? WHERE id = ?",
@@ -65,7 +65,7 @@ module.exports = class User {
           user.email,
           user.password,
           user.role,
-          userId
+          id
         ],
         (err, res) => {
           if (err) {
@@ -77,9 +77,9 @@ module.exports = class User {
       );
     });
   }
-  remove(userId) {
+  remove(id) {
     return new Promise((resolve, reject) => {
-      mysqlConn.query("DELETE FROM user WHERE id = ?", userId, (err, res) => {
+      mysqlConn.query("DELETE FROM user WHERE id = ?", id, (err, res) => {
         if (err) {
           reject(err);
         } else {

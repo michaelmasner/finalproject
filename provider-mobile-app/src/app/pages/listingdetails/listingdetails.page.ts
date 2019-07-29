@@ -40,6 +40,13 @@ export class ListingdetailsPage implements OnInit {
     });
     await alert.present();
   }
+  async presentToast() {
+    const toast = await this.toastCtrl.create({
+      message: 'Property Deleted.',
+      duration: 2000
+    });
+    await toast.present();
+  }
   ngOnInit() {
     const params = new URLSearchParams(location.search);
      this.listId = params.get("property");
@@ -57,7 +64,13 @@ export class ListingdetailsPage implements OnInit {
         this.presentAlert(err);
       });
   }
-
+delete(){
+  this.listingService.remove(parseInt(this.listId)).then((response:any) =>{
+    this.presentToast();
+  }).catch(err => {
+    this.presentAlert(err);
+  });
+}
 navToEdit(){
   this.navCtrl.navigateForward("editproperty")
 }
@@ -66,5 +79,6 @@ navToBookingRequests(id){
     queryParams:{
       property: id
     }
-  });}
+  });
+}
 }

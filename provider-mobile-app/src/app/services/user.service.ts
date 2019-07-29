@@ -61,7 +61,7 @@ updateById(userId, obj){
 
 remove(userId){
     return new Promise((resolve, reject) => {
-        this.http.post('http://localhost:2000/api/provider/delete/', userId).subscribe(response =>{
+        this.http.post('http://localhost:2000/api/user/delete/', userId).subscribe(response =>{
             resolve(response);
         }),
         err =>{
