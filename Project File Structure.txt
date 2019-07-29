@@ -1,15 +1,22 @@
-| PROJECT             | COMPONENT          | FILE NAMES                                                                                                                                                                              |
-|---------------------|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Consumer mobile app | Login              | eg. Rubric-file-structure\consumer-mobile-app\consumer-mobile-app\src\pages\login & eg. Rubric-file-structure\consumer-mobile-app\consumer-mobile-app\src\providers\login               |
-| Consumer mobile app | Registration       | eg. Rubric-file-structure\consumer-mobile-app\consumer-mobile-app\src\pages\registration & eg. Rubric-file-structure\consumer-mobile-app\consumer-mobile-app\src\providers\registration |
-| Consumer mobile app | User Profile       | eg. Rubric-file-structure\consumer-mobile-app\consumer-mobile-app\src\pages\user & eg. Rubric-file-structure\consumer-mobile-app\consumer-mobile-app\src\providers\user                 |
-| Consumer mobile app | List of Properties | eg. Rubric-file-structure\consumer-mobile-app\consumer-mobile-app\src\pages\properties & eg. Rubric-file-structure\consumer-mobile-app\consumer-mobile-app\src\providers\properties     |
-| Provider mobile app | Login              | eg. Rubric-file-structure\provider-mobile-app\provider-mobile-app\src\pages\login & eg. Rubric-file-structure\provider-mobile-app\provider-mobile-app\src\providers\login               |
-| Provider mobile app | Registration       | eg. Rubric-file-structure\provider-mobile-app\provider-mobile-app\src\pages\registration & eg. Rubric-file-structure\provider-mobile-app\provider-mobile-app\src\providers\registration |
-| Provider mobile app | User Profile       | eg. Rubric-file-structure\provider-mobile-app\provider-mobile-app\src\pages\user & eg. Rubric-file-structure\provider-mobile-app\provider-mobile-app\src\providers\user                 |
-| Provider mobile app | List of Properties | eg. Rubric-file-structure\provider-mobile-app\provider-mobile-app\src\pages\properties & eg. Rubric-file-structure\provider-mobile-app\provider-mobile-app\src\providers\properties     |
-| Provider mobile app | List of Bookings   | eg. Rubric-file-structure\provider-mobile-app\provider-mobile-app\src\pages\bookings & eg. Rubric-file-structure\provider-mobile-app\provider-mobile-app\src\providers\bookings         |
-| Admin Panel         | Users              | eg. Rubric-file-structure\admin-panel\admin-panel\src\app\components\users & eg. Rubric-file-structure\admin-panel\admin-panel\src\app\services\users                                   |
-| Admin Panel         | Bookings           | eg. Rubric-file-structure\admin-panel\admin-panel\src\pages\bookings & eg. Rubric-file-structure\admin-panel\admin-panel\src\src\app\services\bookings                                  |
-| API                 | Users              | eg. Rubric-file-structure\API\api\src\pages\users & eg. Rubric-file-structure\api\api\provider-mobile-app\src\api\users                                                                 |
-| API                 | Bookings           | eg. Rubric-file-structure\API\api\src\pages\bookings & eg. Rubric-file-structure\api\api\provider-mobile-app\src\api\bookings                                                           |
+| PROJECT             | COMPONENT                   | FILE NAMES                                                                                                                                                                              |
+|---------------------|-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Consumer mobile app | Login                       | airbnb-app\consumer-mobile-app\src\app\pages\login                 
+| Consumer mobile app | Registration                | airbnb-app\consumer-mobile-app\src\app\pages\registration 
+| Consumer mobile app | User Profile                | airbnb-app\consumer-mobile-app\src\app\pages\profile                 
+| Consumer mobile app | List of Properties          | airbnb-app\consumer-mobile-app\src\app\pages\listings      
+| Consumer mobile app | Property Details/Booking    | airbnb-app\consumer-mobile-app\src\app\pages\listingsdetail      
+| Provider mobile app | Login                       | airbnb-app\provider-mobile-app\src\app\pages\login                
+| Provider mobile app | Registration                | airbnb-app\provider-mobile-app\src\app\pages\registration 
+| Provider mobile app | User Profile                | airbnb-app\provider-mobile-app\src\app\pages\profile                  
+| Provider mobile app | List of Properties          | airbnb-app\provider-mobile-app\src\app\pages\listings     
+| Provider mobile app | Property Details / Delete   | airbnb-app\provider-mobile-app\src\app\pages\listingdetails     
+| Provider mobile app | List of Bookings            | airbnb-app\provider-mobile-app\src\app\pages\bookings         
+| Provider mobile app | Create Property             | airbnb-app\provider-mobile-app\src\app\pages\createproperty     
+| Provider mobile app | Edit Property               | airbnb-app\provider-mobile-app\src\app\pages\editproperty     
+| Admin Panel         | Users                       | airbnb-app\admin-panel\src\app\components\users                                  
+| Admin Panel         | Providers                   | airbnb-app\admin-panel\src\app\components\service-providers                                  
+| Admin Panel         | Properties                  | airbnb-app\admin-panel\src\app\components\property                                  
+| Admin Panel         | Bookings                    | airbnb-app\admin-panel\src\app\components\bookings                                 
+| API                 | Users                       | airbnb-app\src\api\user-routes.js & airbnb-app\src\api\user-auth-routes.js & airbnb-app\src\services\user-auth-service.js & airbnb-app\src\models\user-model.js                                                          
+| API                 | Providers                   | airbnb-app\src\api\provider-routes.js & airbnb-app\src\api\provider-auth-routes.js & airbnb-app\src\services\provider-auth-service.js & airbnb-app\src\models\provider-model.js                                                              
+| API                 | Bookings                    | airbnb-app\src\api\booking-routes.js & airbnb-app\src\models\booking-model.js                                                         
