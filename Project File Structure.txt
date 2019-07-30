@@ -1,22 +1,22 @@
 | PROJECT             | COMPONENT                   | FILE NAMES                                                                                                                                                                              |
 |---------------------|-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Consumer mobile app | Login                       | airbnb-app\consumer-mobile-app\src\app\pages\login                 
-| Consumer mobile app | Registration                | airbnb-app\consumer-mobile-app\src\app\pages\registration 
-| Consumer mobile app | User Profile                | airbnb-app\consumer-mobile-app\src\app\pages\profile                 
-| Consumer mobile app | List of Properties          | airbnb-app\consumer-mobile-app\src\app\pages\listings      
-| Consumer mobile app | Property Details/Booking    | airbnb-app\consumer-mobile-app\src\app\pages\listingsdetail      
-| Provider mobile app | Login                       | airbnb-app\provider-mobile-app\src\app\pages\login                
-| Provider mobile app | Registration                | airbnb-app\provider-mobile-app\src\app\pages\registration 
-| Provider mobile app | User Profile                | airbnb-app\provider-mobile-app\src\app\pages\profile                  
-| Provider mobile app | List of Properties          | airbnb-app\provider-mobile-app\src\app\pages\listings     
-| Provider mobile app | Property Details / Delete   | airbnb-app\provider-mobile-app\src\app\pages\listingdetails     
-| Provider mobile app | List of Bookings            | airbnb-app\provider-mobile-app\src\app\pages\bookings         
-| Provider mobile app | Create Property             | airbnb-app\provider-mobile-app\src\app\pages\createproperty     
-| Provider mobile app | Edit Property               | airbnb-app\provider-mobile-app\src\app\pages\editproperty     
-| Admin Panel         | Users                       | airbnb-app\admin-panel\src\app\components\users                                  
-| Admin Panel         | Providers                   | airbnb-app\admin-panel\src\app\components\service-providers                                  
-| Admin Panel         | Properties                  | airbnb-app\admin-panel\src\app\components\property                                  
-| Admin Panel         | Bookings                    | airbnb-app\admin-panel\src\app\components\bookings                                 
-| API                 | Users                       | airbnb-app\src\api\user-routes.js & airbnb-app\src\api\user-auth-routes.js & airbnb-app\src\services\user-auth-service.js & airbnb-app\src\models\user-model.js                                                          
-| API                 | Providers                   | airbnb-app\src\api\provider-routes.js & airbnb-app\src\api\provider-auth-routes.js & airbnb-app\src\services\provider-auth-service.js & airbnb-app\src\models\provider-model.js                                                              
-| API                 | Bookings                    | airbnb-app\src\api\booking-routes.js & airbnb-app\src\models\booking-model.js                                                         
+| Consumer mobile app | Login                       | finalproject\consumer-mobile-app\src\app\pages\login                 
+| Consumer mobile app | Registration                | finalproject\consumer-mobile-app\src\app\pages\registration 
+| Consumer mobile app | User Profile                | finalproject\consumer-mobile-app\src\app\pages\profile                 
+| Consumer mobile app | List of Properties          | finalproject\consumer-mobile-app\src\app\pages\listings      
+| Consumer mobile app | Property Details/Booking    | finalproject\consumer-mobile-app\src\app\pages\listingsdetail      
+| Provider mobile app | Login                       | finalproject\provider-mobile-app\src\app\pages\login                
+| Provider mobile app | Registration                | finalproject\provider-mobile-app\src\app\pages\registration 
+| Provider mobile app | User Profile                | finalproject\provider-mobile-app\src\app\pages\profile                  
+| Provider mobile app | List of Properties          | finalproject\provider-mobile-app\src\app\pages\listings     
+| Provider mobile app | Property Details / Delete   | finalproject\provider-mobile-app\src\app\pages\listingdetails     
+| Provider mobile app | List of Bookings            | finalproject\provider-mobile-app\src\app\pages\bookings         
+| Provider mobile app | Create Property             | finalproject\provider-mobile-app\src\app\pages\createproperty     
+| Provider mobile app | Edit Property               | finalproject\provider-mobile-app\src\app\pages\editproperty     
+| Admin Panel         | Users                       | finalproject\admin-panel\src\app\components\users                                  
+| Admin Panel         | Providers                   | finalproject\admin-panel\src\app\components\service-providers                                  
+| Admin Panel         | Properties                  | finalproject\admin-panel\src\app\components\property                                  
+| Admin Panel         | Bookings                    | finalproject\admin-panel\src\app\components\bookings                                 
+| API                 | Users                       | finalproject\src\api\user-routes.js & finalproject\src\api\user-auth-routes.js & finalproject\src\services\user-auth-service.js & finalproject\src\models\user-model.js                                                          
+| API                 | Providers                   | finalproject\src\api\provider-routes.js & finalproject\src\api\provider-auth-routes.js & finalproject\src\services\provider-auth-service.js & finalproject\src\models\provider-model.js                                                              
+| API                 | Bookings                    | finalproject\src\api\booking-routes.js & finalproject\src\models\booking-model.js                                                         
