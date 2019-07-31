@@ -9,6 +9,7 @@ import { StatusBar } from "@ionic-native/status-bar/ngx";
 import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
+//import { JwtHelperService }
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +18,8 @@ import { AppRoutingModule } from "./app-routing.module";
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    //JwtHelperService
   ],
   bootstrap: [AppComponent]
 })

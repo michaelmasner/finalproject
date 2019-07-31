@@ -22,6 +22,7 @@ export class LoginPage {
     private authService: AuthService
   ) {
     this.user = userService.user;
+    localStorage.setItem("isLoggedIn", "false");
   }
   async presentAlert(err) {
     const alert = await this.alertCtrl.create({

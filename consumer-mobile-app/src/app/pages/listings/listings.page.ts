@@ -3,7 +3,7 @@ import { NavController, AlertController } from "@ionic/angular";
 import { ListingsService } from "../../services/listings.service";
 import { Listing } from "../../models/listings.model";
 import { User } from "src/app/models/user.models";
-
+import { AuthService } from "../../services/auth.service";
 @Component({
   selector: "app-listings",
   templateUrl: "./listings.page.html",
@@ -16,7 +16,8 @@ export class ListingsPage implements OnInit {
   constructor(
     private listingsService: ListingsService,
     private alertCtrl: AlertController,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private authService: AuthService
   ) {}
   async presentAlert(err) {
     const alert = await this.alertCtrl.create({
@@ -40,6 +41,7 @@ export class ListingsPage implements OnInit {
   }
   signOut() {
     this.navCtrl.navigateBack("login");
+    this.authService.logOut();
   }
 
   navToProfile() {
